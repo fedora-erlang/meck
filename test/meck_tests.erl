@@ -625,7 +625,7 @@ cover_options_fail_({_OldPath, Src, Module}) ->
     {ok, _} = compile:file(Src, CompilerOptions),
     ?assertEqual(CompilerOptions, meck_mod:compile_options(Module)),
     {ok, _} = cover:compile_beam(Module),
-    ?assertEqual([], meck_mod:compile_options(Module)),
+    ?assertEqual([{i,"../test/include"},{d,'TEST',true}], meck_mod:compile_options(Module)),
     a      = Module:a(),
     b      = Module:b(),
     {1, 2} = Module:c(1, 2),
