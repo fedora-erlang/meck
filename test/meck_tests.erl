@@ -16,8 +16,6 @@
 
 -module(meck_tests).
 
--compile(export_all).
-
 -include_lib("eunit/include/eunit.hrl").
 -include_lib("hamcrest/include/hamcrest.hrl").
 
