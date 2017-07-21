@@ -1065,7 +1065,9 @@ cover_options_fail_({_OldPath, Src, Module}) ->
 test_file(Module, Ext) ->
     filename:join(test_dir(), atom_to_list(Module) ++ Ext).
 
-test_dir() -> "../" ++ filename:dirname(?FILE).
+test_dir() ->
+	{ok, CWD} = file:get_cwd(),
+	filename:dirname(CWD) ++ "/test".
 
 test_include() -> filename:join(test_dir(), "include").
 
